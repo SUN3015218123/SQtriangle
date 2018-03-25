@@ -1,0 +1,41 @@
+package cn.tju.scs;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runners.Parameterized.Parameters;
+
+public class testTriangle {
+	
+	private Triangle tri;
+	private int input1;
+	private int input2;
+	private int input3;
+	private int expected;
+	
+	public testTriangle(int a,int b,int c,int d){
+		this.input1=a;
+		this.input2=b;
+		this.input2=c;
+		this.expected=d;
+	}
+	@Before
+	private void setUp(){
+		tri = new Triangle();
+	}
+	
+	@Parameters
+	 public static Collection<Object[]> getData(){
+	     return Arrays.asList(new Object[][]{
+	    	 {3,4,5,3},
+	    	 {3,3,2,2},
+	    	 {9,9,9,1}
+    	 });
+	}
+	@Test
+	public void test() {
+		 assertEquals(this.expected, tri.ifTriangle(input1, input2, input3));
+	}
+
+}
